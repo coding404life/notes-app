@@ -80,11 +80,11 @@ function jsTask() {
 // get the date and time
 const cbString = new Date().getTime();
 
-function cacheBusting() {
+async function cacheBusting() {
     //changes on index.html file
     return src('index.html')
         //replace ?cb=123 to a random number so the browser don't cashe our files
-        .pipe(replace(/cb=\d+/g, 'cb' + cbString))
+        .pipe(replace(/cb=\d+/g, 'cb=' + cbString))
         //destination of html file after replace
         .pipe(dest('.'));
 }
