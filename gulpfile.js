@@ -1,3 +1,15 @@
+// #Install the gulp command line utility
+// npm install --global gulp-cli
+// #Create a package.json file in your project directory
+// npm init
+// #Install the gulp package in your devDependencies
+// npm install --save-dev gulp
+//
+//
+//
+//
+
+
 //Initialize modules
 const {
     src,
@@ -112,7 +124,6 @@ function watchTask() {
 }
 
 // Defualt Task
-// exports.defualt = series(parallel(imgComp));
 exports.default = series(
     parallel(imgComp, scssTask, jsTask),
     cacheBusting,

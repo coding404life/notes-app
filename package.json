@@ -23,5 +23,13 @@
     "gulp-sourcemaps": "^2.6.5",
     "gulp-uglify": "^3.0.2"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coding404life/Starter-Project.git"
+  },
+  "bugs": {
+    "url": "https://github.com/coding404life/Starter-Project/issues"
+  },
+  "homepage": "https://github.com/coding404life/Starter-Project#readme"
 }
