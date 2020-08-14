@@ -4,10 +4,10 @@
 // npm init
 // #Install the gulp package in your devDependencies
 // npm install --save-dev gulp
-//
-//
-//
-//
+// #install other gulp-plugins
+// 
+//npm install --save-dev autoprefixer browser-sync cssnano gulp gulp-concat gulp-image gulp-notify gulp-postcss gulp-replace gulp-sass gulp-sourcemaps gulp-uglify
+//---------------------------------------------------
 
 
 //Initialize modules
