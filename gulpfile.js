@@ -31,6 +31,7 @@ const uglify = require('gulp-uglify');
 const browserSync = require('browser-sync').create();
 const image = require('gulp-image');
 const notify = require("gulp-notify");
+const uglifyEs = require('gulp-uglify-es').default;
 
 //file path variables
 const files = {
@@ -68,7 +69,7 @@ function jsTask() {
         //concat the js files into one file called all.js
         .pipe(concat('all.js'))
         //minify the js files
-        .pipe(uglify())
+        // .pipe(uglifyEs().on('error', console.error))
         //add notify for js 
         .pipe(notify("Js Changes Saved!"))
         //set the destination to dist folder
