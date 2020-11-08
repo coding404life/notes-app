@@ -1,2 +1,2 @@
-html{scroll-behavior:smooth}body{font-weight:300;-webkit-transition:all .25s ease-in-out;transition:all .25s ease-in-out}body,h1,h2,h3,h4,h5,h6{font-family:sans-serif}.btn,p{font-family:Lato,sans-serif;font-weight:400}.btn-dark{background-color:rgba(8,8,8,.6);border:1px solid rgba(8,8,8,.6)}.btn-light{background-color:hsla(0,0%,98%,.4);border:1px solid hsla(0,0%,98%,.5);color:#f0f0f0}.btn-warning{background-color:#c90;color:#f0f0f0}@media (max-width:576px){.btn{font-size:.9rem}}
+html{scroll-behavior:smooth}body{font-weight:300;-webkit-transition:all .25s ease-in-out;transition:all .25s ease-in-out}body,h1,h2,h3,h4,h5,h6,p{font-family:sans-serif}p{font-weight:400}@media (max-width:576px){.btn{font-size:.9rem}}
 /*# sourceMappingURL=styles.css.map */

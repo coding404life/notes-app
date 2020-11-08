@@ -31,7 +31,7 @@ const uglify = require('gulp-uglify');
 const browserSync = require('browser-sync').create();
 const image = require('gulp-image');
 const notify = require("gulp-notify");
-const uglifyEs = require('gulp-uglify-es').default;
+// const uglifyEs = require('gulp-uglify-es').default;
 
 //file path variables
 const files = {
@@ -39,7 +39,7 @@ const files = {
     cssPath: './css/**/*.css',
     jsPath: './js/**/*.js',
     htmlPath: './*.html',
-    imagesPath: './images/*'
+    imagesPath: './images/**'
 }
 
 // Sass Task
