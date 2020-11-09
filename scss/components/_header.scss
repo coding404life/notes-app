@@ -1,0 +1,12 @@
+header {
+    padding: 1em;
+    position: fixed;
+    width: 100%;
+    background-color: #fff;
+    z-index: 100;
+
+    input[type='search'] {
+        border: none;
+        padding: .5em 1em
+    }
+}
