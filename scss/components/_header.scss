@@ -1,12 +1,43 @@
 header {
-    padding: 1em;
     position: fixed;
     width: 100%;
     background-color: #fff;
     z-index: 100;
+    color: #fff;
+
+    .fa-search {
+        color: #444;
+        margin-left: 1em;
+    }
 
     input[type='search'] {
         border: none;
-        padding: .5em 1em
+        padding: .5em 1em .5em .5em;
+        outline: none;
+    }
+
+    .left-header {
+        background-color: $darkPurp;
+        padding: 1.2em;
+
+        p {
+            margin: 0;
+        }
+    }
+
+    .right-header {
+
+
+        p {
+            margin: 0 1em;
+            display: inline;
+        }
+
+        .img-container {
+            height: 3em;
+            width: 3em;
+            border-radius: 50%;
+            overflow: hidden;
+        }
     }
 }

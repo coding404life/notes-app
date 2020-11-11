@@ -4,13 +4,28 @@
 
     ul {
         li {
-            padding: .5em 2em;
+            padding: .5em 1em;
             cursor: pointer;
 
             &.active {
                 background-color: $transWhiteColor;
                 border-left: 3px solid #fff;
+                padding: .5em .8em;
+            }
+
+            i {
+                margin-right: .5em;
+                font-size: 1.2em;
             }
         }
+    }
+}
+
+.category-items {
+    position: fixed;
+
+    .nav-pills .active {
+        background-color: $purpColor;
+        padding: .5em 1.5em;
     }
 }
