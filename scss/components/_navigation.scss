@@ -1,6 +1,8 @@
 #sidebar {
+    background-color: $purpColor;
     color: $whiteColor;
     padding: 2em 0;
+    height: 100vh;
 
     ul {
         li {
@@ -19,13 +21,47 @@
             }
         }
     }
+
+    @include mediaQueryMax(550px) {
+        height: auto;
+    }
 }
 
 .category-items {
-    position: fixed;
-
     .nav-pills .active {
         background-color: $purpColor;
         padding: .5em 1.5em;
+    }
+}
+
+.display-card-container {
+    color: $purpColor;
+    cursor: pointer;
+    position: relative;
+
+    .add-note-card {
+        color: #444;
+        position: absolute;
+        top: 40px;
+        left: -70px;
+        right: 40px;
+        min-width: 22vw;
+        z-index: 1;
+
+        textarea {
+            border: 0;
+            outline: none;
+            resize: none;
+        }
+
+        textarea[name='title'] {
+            font-size: 1.2em;
+            width: 180px;
+        }
+
+        textarea[name='text'] {
+            height: 100px;
+            width: 180px;
+        }
     }
 }

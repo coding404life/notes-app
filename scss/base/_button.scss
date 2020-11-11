@@ -1,4 +1,13 @@
-@include mediaQuery(576px) {
+.btn-dark {
+    background-color: $darkPurp;
+    border: none;
+
+    &:hover {
+        background-color: $purpColor;
+    }
+}
+
+@include mediaQueryMax(576px) {
     .btn {
         font-size: .9rem;
     }

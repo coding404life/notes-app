@@ -1,12 +1,50 @@
 #notes-container {
-    height: 100vh;
-
     #notes {
-        padding: 1em 1em 2em;
-        margin-top: 6em;
+        padding: 0 1em 2em;
         margin-bottom: 1.5em;
-        height: 76vh;
+        max-height: 70vh;
         overflow: scroll;
         overflow-x: hidden;
     }
+
+
+    .card-text {
+        padding-right: 0;
+
+        .fa-edit {
+            margin-left: 0.3em;
+            margin-right: .3em;
+        }
+
+        i {
+            cursor: pointer;
+            color: $darkPurp;
+        }
+    }
+
+    .card-columns {
+        column-gap: 0;
+
+        .editor {
+            border: solid 1px gray;
+            width: 300px;
+            height: 100px;
+            padding: 6px;
+            overflow: scroll;
+        }
+
+        .card {
+            @include mediaQueryMin(576px) {
+                max-width: 21vw;
+            }
+        }
+
+    }
+}
+
+[contenteditable][placeholder]:empty:before {
+    content: attr(placeholder);
+    position: absolute;
+    color: gray;
+    background-color: transparent;
 }

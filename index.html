@@ -39,8 +39,8 @@
                             <div class="img-container">
                                 <img class="img-fluid" src="images/Screenshot at Sep 18 19-33-26.png" alt="#">
                             </div>
-                            <p>hello <span>Yahya</span></p>
-                            <i class="fas fa-bell"></i>
+                            <p><Span>Hello, </Span><span>Yahya</span></p>
+                            <i class="far fa-bell"></i>
                         </div>
                     </div>
                 </div>
@@ -53,8 +53,8 @@
     <div class="container-fluid">
         <div class="row">
             <!-- sidebar -->
-            <div class="col-md-3 col-lg-2 bg-purp mt-5  px-0">
-                <aside id=sidebar>
+            <div class="col-md-3 col-lg-2 mt-5 px-0" id=sidebar>
+                <aside>
                     <ul class="list-unstyled">
                         <li>
                             <i class="fas fa-th-large"></i>
@@ -90,171 +90,83 @@
                 <div class="container">
                     <div class="row">
 
-                        <!-- nav tabs -->
-                        <nav class="category-items">
-                            <ul class="nav nav-pills mb-3 mt-5">
-                                <li class="nav-item ">
-                                    <a class="nav-link  active" href="#">All</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Project</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Buisness</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Personal</a>
-                                </li>
-                            </ul>
-                        </nav>
+                        <!-- nav category tabs -->
+                        <div class="col  mb-3 mt-5">
+                            <div class="row">
+                                <div class="col-sm">
+                                    <nav class="category-items">
+                                        <ul class="nav nav-pills">
+                                            <li class="nav-item ">
+                                                <a class="nav-link  active" href="#">All</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#">Project</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#">Buisness</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#">Personal</a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+
+                                <div class="col-sm-3 px-0 display-card-container d-flex align-items-center">
+                                    <div class="display-card">
+                                        <i class="fas fa-plus-circle mr-1"></i>
+                                        <p class="d-inline mb-0">Add new note</p>
+                                    </div>
+
+                                    <!-- add new card note #card-code -->
+                                    <div class="card add-note-card d-none">
+                                        <div class="card-body">
+                                            <form class="card-form">
+                                                <textarea name="title" data-role="none"
+                                                    placeholder="title..."></textarea>
+                                                <textarea name="text" data-role="none"
+                                                    placeholder="write some notes..."></textarea>
+                                            </form>
+                                            <div class="text-center mt-2">
+                                                <buttton class="btn btn-dark add-note">add note</buttton>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
                         <!-- end nav tabs -->
 
-                        <!-- notes section -->
-                        <main id="notes">
-                            <div class="row justify-content-center">
+                        <div class="col-12">
 
-                                <!-- notes card -->
-                                <div class="card border-light mb-3 mr-3" style="max-width: 13rem;">
-                                    <div class="card-header bg-transparent border-light">8 Nov, 2020</div>
-                                    <div class="card-body text-dark pt-0">
-                                        <h5 class="card-title">Success card title</h5>
-                                        <p class="card-text">Some quick example text to build on the card title and
-                                            make
-                                            up
-                                            the bulk of the card's content.</p>
-                                    </div>
-                                    <!-- <div class="card-footer bg-transparent border-dark">Footer</div> -->
-                                </div>
-                                <!-- notes card -->
-                                <div class="card border-light mb-3 mr-3" style="max-width: 13rem;">
-                                    <div class="card-header bg-transparent border-light">8 Nov, 2020</div>
-                                    <div class="card-body text-dark pt-0">
-                                        <h5 class="card-title">Success card title</h5>
-                                        <p class="card-text">Some quick example text to build on the card title and
-                                            make
-                                            up
-                                            the bulk of the card's content.</p>
-                                    </div>
-                                    <!-- <div class="card-footer bg-transparent border-dark">Footer</div> -->
-                                </div>
-                                <!-- notes card -->
-                                <div class="card border-light mb-3 mr-3" style="max-width: 13rem;">
-                                    <div class="card-header bg-transparent border-light">8 Nov, 2020</div>
-                                    <div class="card-body text-dark pt-0">
-                                        <h5 class="card-title">Success card title</h5>
-                                        <p class="card-text">Some quick example text to build on the card title and
-                                            make
-                                            up
-                                            the bulk of the card's content.</p>
-                                    </div>
-                                    <!-- <div class="card-footer bg-transparent border-dark">Footer</div> -->
-                                </div>
-                                <!-- notes card -->
-                                <div class="card border-light mb-3 mr-3" style="max-width: 13rem;">
-                                    <div class="card-header bg-transparent border-light">8 Nov, 2020</div>
-                                    <div class="card-body text-dark pt-0">
-                                        <h5 class="card-title">Success card title</h5>
-                                        <p class="card-text">Some quick example text to build on the card title and
-                                            make
-                                            up
-                                            the bulk of the card's content.</p>
-                                    </div>
-                                    <!-- <div class="card-footer bg-transparent border-dark">Footer</div> -->
-                                </div>
-                                <!-- notes card -->
-                                <div class="card border-light mb-3 mr-3" style="max-width: 13rem;">
-                                    <div class="card-header bg-transparent border-light">8 Nov, 2020</div>
-                                    <div class="card-body text-dark pt-0">
-                                        <h5 class="card-title">Success card title</h5>
-                                        <p class="card-text">Some quick example text to build on the card title and
-                                            make
-                                            up
-                                            the bulk of the card's content.</p>
-                                    </div>
-                                    <!-- <div class="card-footer bg-transparent border-dark">Footer</div> -->
-                                </div>
-                                <!-- notes card -->
-                                <div class="card border-light mb-3 mr-3" style="max-width: 13rem;">
-                                    <div class="card-header bg-transparent border-light">8 Nov, 2020</div>
-                                    <div class="card-body text-dark pt-0">
-                                        <h5 class="card-title">Success card title</h5>
-                                        <p class="card-text">Some quick example text to build on the card title and
-                                            make
-                                            up
-                                            the bulk of the card's content.</p>
-                                    </div>
-                                    <!-- <div class="card-footer bg-transparent border-dark">Footer</div> -->
-                                </div>
-                                <!-- notes card -->
-                                <div class="card border-light mb-3 mr-3" style="max-width: 13rem;">
-                                    <div class="card-header bg-transparent border-light">8 Nov, 2020</div>
-                                    <div class="card-body text-dark pt-0">
-                                        <h5 class="card-title">Success card title</h5>
-                                        <p class="card-text">Some quick example text to build on the card title and
-                                            make
-                                            up
-                                            the bulk of the card's content.</p>
-                                    </div>
-                                    <!-- <div class="card-footer bg-transparent border-dark">Footer</div> -->
-                                </div>
-                                <!-- notes card -->
-                                <div class="card border-light mb-3 mr-3" style="max-width: 13rem;">
-                                    <div class="card-header bg-transparent border-light">8 Nov, 2020</div>
-                                    <div class="card-body text-dark pt-0">
-                                        <h5 class="card-title">Success card title</h5>
-                                        <p class="card-text">Some quick example text to build on the card title and
-                                            make
-                                            up
-                                            the bulk of the card's content.</p>
-                                    </div>
-                                    <!-- <div class="card-footer bg-transparent border-dark">Footer</div> -->
-                                </div>
-                                <!-- notes card -->
-                                <div class="card border-light mb-3 mr-3" style="max-width: 13rem;">
-                                    <div class="card-header bg-transparent border-light">8 Nov, 2020</div>
-                                    <div class="card-body text-dark pt-0">
-                                        <h5 class="card-title">Success card title</h5>
-                                        <p class="card-text">Some quick example text to build on the card title and
-                                            make
-                                            up
-                                            the bulk of the card's content.</p>
-                                    </div>
-                                    <!-- <div class="card-footer bg-transparent border-dark">Footer</div> -->
-                                </div>
-                                <!-- notes card -->
-                                <div class="card border-light mb-3 mr-3" style="max-width: 13rem;">
-                                    <div class="card-header bg-transparent border-light">8 Nov, 2020</div>
-                                    <div class="card-body text-dark pt-0">
-                                        <h5 class="card-title">Success card title</h5>
-                                        <p class="card-text">Some quick example text to build on the card title and
-                                            make
-                                            up
-                                            the bulk of the card's content.</p>
-                                    </div>
-                                    <!-- <div class="card-footer bg-transparent border-dark">Footer</div> -->
-                                </div>
-                                <!-- notes card -->
-                                <div class="card border-light mb-3 mr-3" style="max-width: 13rem;">
-                                    <div class="card-header bg-transparent border-light">8 Nov, 2020</div>
-                                    <div class="card-body text-dark pt-0">
-                                        <h5 class="card-title">Success card title</h5>
-                                        <p class="card-text">Some quick example text to build on the card title and
-                                            make
-                                            up
-                                            the bulk of the card's content.</p>
-                                    </div>
-                                    <!-- <div class="card-footer bg-transparent border-dark">Footer</div> -->
-                                </div>
+                            <!-- notes section -->
+                            <main id="notes">
+                                <div class="row justify-content-center">
+                                    <!-- notes columns -->
+                                    <div class="card-columns cards-container">
+                                        <!-- card note  -->
+                                        <!-- <div class="card">
+                                            <div class="card-body">
+                                                <h5 class="card-title" contenteditable placeholder="title...">
+                                                </h5>
+                                                <p contenteditable placeholder="write some notes..." class="card-text">
+                                                </p>
+                                                <p class="card-text"><small class="text-muted">Last updated 3 mins
+                                                        ago</small></p>
+                                            </div>
+                                        </div> -->
+                                        <!-- end card note  -->
 
-                            </div>
-                            <!--end notes section -->
-                        </main>
+                                        <!--end notes section -->
+                                    </div>
+                            </main>
+                        </div>
+
                     </div>
                 </div>
-
             </div>
             <!-- end main content -->
-
         </div>
     </div>
 
