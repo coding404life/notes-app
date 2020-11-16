@@ -28,12 +28,12 @@ const notesContainer = document.querySelector('#notes-container');
 //storing databse connection
 const db = firebase.firestore();
 
-// 1. get data from firebase
-const getData = () => {
+// 1. get data from firebase at the start
+const getData = async () => {
     // 1. clear the container everytime call this function to get fresh data from databse
     cardsContainer.innerHTML = ' '
     // 2. get the data collection from firebase
-    db.collection('notes').get().then(snapshot => {
+    await db.collection('notes').get().then(snapshot => {
         // 3. loop through documents
         snapshot.docs.forEach((doc) => {
             // 4. save the title notes doc into variables
@@ -41,9 +41,8 @@ const getData = () => {
             let note = doc.data().note;
             let atTime = doc.data().atTime;
             // 5. display card function
-            const cards = displayCards(title, note, atTime);
-            // 6. output the cards into the inner face
-            cardsContainer.innerHTML += cards
+            displayCards(title, note, atTime, doc.id);
+            //gets the id
         });
     }).catch(err => {
         console.log(err);
@@ -53,20 +52,18 @@ const getData = () => {
 getData();
 
 // 3. output the data from databse into our app
-const displayCards = (cardTitle, cardText, fullDate) => {
+const displayCards = (cardTitle, cardText, fullDate, docID) => {
     // html that inserted into the page
     const cards = `
     <div class="card">
-         <div class="card-body">
+         <div class="card-body" id='${docID}'>
              <h5 class="card-title" contenteditable placeholder="title...">${cardTitle}</h5>
              <p contenteditable placeholder="write some notes..." class="card-text">${cardText}</p>
-             <p class="card-text"><small class="text-muted">${fullDate}</small></p>
+             <p class="card-text"><small class="text-muted"><i class="mr-3 far fa-trash-alt delete-note"></i>${fullDate}</small></p>
         </div>
     </div>`;
     // 4. insert cards at the end 
-    return cards;
-    // cardsContainer.insertAdjacentHTML('beforeend', cards);
-
+    cardsContainer.innerHTML += cards
 }
 
 // 4. display the note box if click on add note button
@@ -76,45 +73,114 @@ cardDisplay.addEventListener('click', () => {
 
 // 5. create a time function
 const timeFun = () => {
+    const month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
     const nowDate = new Date();
     const y = nowDate.getFullYear();
     const m = nowDate.getMonth();
-    const d = nowDate.getDay();
+    const d = nowDate.getDate();
     const hour = nowDate.getHours();
     const pmOrAm = hour >= 12 ? ' PM' : ' AM';
     const mint = nowDate.getMinutes();
-    const fullDate = `${y}-${m}-${d} at ${hour % 12}:${mint} ${pmOrAm}`;
-
+    const fullDate = `${month[m]}-${d}-${y} ${hour % 12}:${mint} ${pmOrAm}`;
+    // return the date for all notes
     return fullDate;
+}
+
+// add new data into firebase
+const addNewCard = async (docID) => {
+    // 2. get the data collection from firebase
+    await db.collection('notes').doc(`${docID}`).get().then(snapshot => {
+        // 4. save the title notes doc into variables
+        let title = snapshot.data().title;
+        let note = snapshot.data().note;
+        let atTime = snapshot.data().atTime;
+        // 5. display card function
+        displayCards(title, note, atTime, docID);
+        //gets the id
+    }).catch(err => {
+        console.log(err);
+    });
 }
 
 // 6. on click save data into firebase
 addBtn.addEventListener('click', () => {
-    // input fields data 
+    // 1. get input fields data 
     const cardTitleValue = fieldForm.title.value.trim();
     const cardTextValue = fieldForm.text.value.trim();
 
     // only add note if at least have title
     if (cardTitleValue.length || cardTextValue.length) {
-        // 3. add document into firebase
+        // 1. add document into firebase
         db.collection('notes').add({
             title: cardTitleValue,
             note: cardTextValue,
             atTime: timeFun()
         }).then(docRef => {
-            console.log(docRef);
+            // 2. get the data from input fields and output data again
+            addNewCard(docRef.id);
         }).catch(err => {
             console.log(err);
         });
 
-        // get the data from input fields and output data again
-        getData();
-
-        // 6. hide card box 
+        // 3. hide card box 
         cardBox.classList.add('d-none');
-        // 7. clear fields
+        // 4. clear fields
         fieldForm.reset()
     } else {
         alert('empty')
     }
+});
+
+// 7. set the new value function
+const setNewValue = (titleValue, noteValue, cardId) => {
+    db.collection('notes').doc(`${cardId}`).set({
+        title: titleValue,
+        note: noteValue,
+        atTime: timeFun()
+    }).then(() => {
+        console.log('changed');
+    }).catch(err => {
+        console.log(err);
+    });
+}
+
+// 8. change the text on keydown
+cardsContainer.addEventListener('keyup', (e) => {
+    // let titleValue, noteValue;
+
+    // 1. target the element is being change e.target.parentNode and get the id
+    const cardId = e.target.parentNode.id;
+
+    // set the new card value if the target is 
+    db.collection('notes').doc(`${cardId}`).get().then(snapshot => {
+        // if the target class == to card title or card text get value and assign the new values into the card
+        if (e.target.classList == 'card-title') {
+            let titleValue = e.target.textContent;
+            let noteValue = snapshot.data().note;
+            setNewValue(titleValue, noteValue, cardId)
+        } else if (e.target.classList == 'card-text') {
+            let titleValue = snapshot.data().title;
+            let noteValue = e.target.textContent;
+            setNewValue(titleValue, noteValue, cardId)
+        }
+    }).catch(err => {
+        console.log(err);
+    });
+});
+
+// 9.delete note
+cardsContainer.addEventListener('click', e => {
+    // 1. get element contain a class of delete-note 
+
+    if (e.target.classList.contains('delete-note')) {
+        const deleteCardId = e.target.parentNode.parentNode.parentNode
+        db.collection('notes').doc(`${deleteCardId.id}`).delete().then(() => {
+
+            console.log("Document successfully deleted!");
+        }).catch(err => {
+            console.log(err);
+        });
+        deleteCardId.parentNode.remove();
+    }
+
 });

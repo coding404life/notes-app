@@ -5,8 +5,11 @@
         max-height: 70vh;
         overflow: scroll;
         overflow-x: hidden;
-    }
 
+        @include mediaQueryMin(768px) {
+            padding: 0 6% 2em;
+        }
+    }
 
     .card-text {
         padding-right: 0;
@@ -34,6 +37,7 @@
         }
 
         .card {
+
             @include mediaQueryMin(576px) {
                 max-width: 21vw;
             }
